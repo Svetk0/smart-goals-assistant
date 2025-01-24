@@ -1,11 +1,12 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-export interface ChatMessage {
+export type ChatMessage = {
+  choices: any;
   id: string;
-  content: string;
+  content: any;
   role: "user" | "assistant";
   timestamp: number;
-}
+};
 
 export const chatApi = createApi({
   reducerPath: "chatApi",
@@ -21,7 +22,14 @@ export const chatApi = createApi({
         },
         body: JSON.stringify({
           model: "openai/gpt-3.5-turbo",
-          messages: [{ role: "user", content: message }],
+          messages: [
+            {
+              role: "system",
+              content:
+                "You are a SMART goals expert. Analyze the input and provide three SMART goal suggestions and identify missing SMART components. Give a short comments (not more 1 little sentences)",
+            },
+            { role: "user", content: message },
+          ],
         }),
       }),
     }),

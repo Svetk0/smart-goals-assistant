@@ -1,4 +1,4 @@
-# AIBIZ
+# AIBIZ team
 
 ## Hackathon info
 

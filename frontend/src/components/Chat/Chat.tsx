@@ -11,7 +11,7 @@ export const Chat = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [showTooltip, setShowTooltip] = useState(false);
-  const [showInputApiKey, setShowInputApiKey] = useState(true);
+  const [showInputApiKey, setShowInputApiKey] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [apiKey, setApiKey] = useState<string>("");
   const tooltipRef = useRef<HTMLDivElement>(null);
@@ -102,6 +102,12 @@ export const Chat = () => {
     try {
       const response = await sendMessage(message).unwrap();
       const parsedObject = parseInput(response.choices[0].message.content);
+      if (!parsedObject || !parsedObject.suggestions) {
+        setErrorMessage(
+          "I'm not sure that understand your goal correctly. Try another question"
+        );
+        return;
+      }
 
       const assistantMessages: ChatMessage[] =
         parsedObject.suggestions?.map((suggestion: string, index: number) => ({
@@ -122,8 +128,9 @@ export const Chat = () => {
     }
   };
 
-  const clearMessages = () => {
+  const clearCache = () => {
     localStorage.removeItem("chatMessages");
+    localStorage.removeItem("OPENAI_API_KEY");
     setMessages([]);
   };
 
@@ -163,16 +170,26 @@ export const Chat = () => {
   return (
     <div className={styles.chat}>
       <header className={styles.header}>
-        <h1>Make SMART goals</h1>
-        <button onClick={clearMessages} className={styles.clearButton}>
-          Clear Chat
+        <div
+          className={styles.rowWrapper__center}
+          onClick={handleTooltipToggle}
+        >
+          <h1>Make SMART goals</h1>
+          <button
+            onClick={handleTooltipToggle}
+            className={styles.tooltipButton}
+          >
+            ?
+          </button>
+        </div>
+
+        <button onClick={clearCache} className={styles.clearButton}>
+          Clear Cache
         </button>
-        <button onClick={handleTooltipToggle} className={styles.tooltipButton}>
-          What is SMART?
-        </button>
+
         <button
           onClick={handleInputApiKeyToggle}
-          className={styles.tooltipButton}
+          className={styles.apikeyButton}
         >
           Enter own Api Key
         </button>
@@ -219,19 +236,6 @@ export const Chat = () => {
         )}
         <div ref={endOfMessagesRef} />
       </div>
-
-      {/* <form className={styles.inputPanel} onSubmit={handleApiKeySubmit}>
-        <input
-          type="text"
-          value={apiKey}
-          onChange={(e) => setApiKey(e.target.value)}
-          placeholder="Enter your OpenAI API key... sk-or-..."
-          className={styles.input}
-        />
-        <button type="submit" className={styles.sendButton__rect}>
-          Save Key
-        </button>
-      </form> */}
 
       <form className={styles.inputPanel} onSubmit={handleSubmit}>
         <input

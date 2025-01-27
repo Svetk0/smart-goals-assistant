@@ -1,16 +1,16 @@
-# AIBIZ
+# AIBIZ - SMART Goals Helper App
 
 ## Hackathon info
 
-1. AIBIZ SMART
-2. https://smart-goals-assistant.vercel.app/
-3. %%PRESENTATION%%
-4. %%VIDEO%%
+1. Team name: AIBIZ
+2. Project name: SMART Goals Helper App
+3. https://smart-goals-assistant.vercel.app/
+4. [Project presentation](./AIBIZ_SMART_Goals_Helper.pdf)
 5. **All code development was provided by team during hackathon time**
 
 # Documentation
 
-## SMART Goals Chat Application
+## SMART Goals Helper Application
 
 A web application that helps users transform their questions into SMART goals (Specific, Measurable, Achievable, Relevant, Time-bound).
 

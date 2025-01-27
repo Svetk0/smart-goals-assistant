@@ -60,7 +60,7 @@ A web application that helps users transform their questions into SMART goals (S
    ```bash
    npm run dev
    ```
-5. Open [http://localhost:3000](http://localhost:3000) in your browser
+5. Open [http://localhost:3012](http://localhost:3012) in your browser
 
 ## Environment Variables
 

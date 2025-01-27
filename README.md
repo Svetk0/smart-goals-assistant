@@ -6,7 +6,7 @@
 2. Project name: SMART Goals Helper App
 3. https://smart-goals-assistant.vercel.app/
 4. [Project presentation](./AIBIZ_SMART_Goals_Helper.pdf)
-5. [Project DEMO video](./demo_video.mov)
+5. [Project DEMO video](https://disk.yandex.ru/d/YQ00d2Dyp5ZblA)
 6. **All code development was provided by team during hackathon time**
 
 # Documentation

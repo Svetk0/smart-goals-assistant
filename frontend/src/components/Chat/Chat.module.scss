@@ -6,6 +6,12 @@
     flex-direction: column;
     background-color: #1a1a1a;
     color: #ffffff;
+
+    @supports (-webkit-touch-callout: none) {
+        .chat {
+            height: -webkit-fill-available;
+        }
+    }
 }
 
 .header {

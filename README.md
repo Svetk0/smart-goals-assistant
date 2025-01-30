@@ -1,3 +1,4 @@
+
 # AIBIZ - SMART Goals Helper App
 
 ## Hackathon info
@@ -94,3 +95,5 @@ If you run project locally, then stop it, check your `.env` and type valid API k
 > 500 error (any 5xx)
 
 - waiting while OpenAi team fix errors
+
+<!-- upd env -->

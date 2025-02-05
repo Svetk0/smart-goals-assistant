@@ -96,4 +96,4 @@ If you run project locally, then stop it, check your `.env` and type valid API k
 
 - waiting while OpenAi team fix errors
 
-<!-- upd env api key -->
+<!-- upd env api key up to 7th Feb -->
